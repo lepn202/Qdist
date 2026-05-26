@@ -1,0 +1,87 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+import { SectionHeader } from '@/components/shared/SectionHeader'
+import { staggerContainer, fadeUp } from '@/animations/variants'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { SERVICES } from '@/lib/constants'
+
+export function ServicesGrid() {
+  const { ref, inView } = useScrollAnimation(0.1)
+
+  return (
+    <section className="bg-background section-padding section-py">
+      <SectionHeader
+        label="What We Do"
+        title="Full-Stack Skate Services"
+        description="From pressing your first deck to distributing your brand across Europe — everything under one roof."
+        className="mb-16 lg:mb-20"
+      />
+
+      <motion.div
+        ref={ref}
+        variants={staggerContainer(0, 0.08)}
+        initial="hidden"
+        animate={inView ? 'show' : 'hidden'}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border"
+      >
+        {SERVICES.map((service) => (
+          <ServiceCard key={service.number} {...service} />
+        ))}
+      </motion.div>
+    </section>
+  )
+}
+
+function ServiceCard({
+  number,
+  title,
+  description,
+  slug,
+}: {
+  number:      string
+  title:       string
+  description: string
+  slug:        string
+}) {
+  return (
+    <motion.div variants={fadeUp}>
+      <Link href={`/${slug}`} className="group block">
+        <motion.article
+          initial="rest"
+          whileHover="hover"
+          className="relative bg-surface p-8 lg:p-10 min-h-[280px] flex flex-col justify-between overflow-hidden transition-colors duration-300 group-hover:bg-surface-2"
+        >
+          {/* Number — decorative */}
+          <span
+            aria-hidden
+            className="absolute top-6 right-8 font-display text-[5rem] leading-none text-foreground/[0.07] select-none transition-all duration-300 group-hover:text-foreground/[0.12] group-hover:-translate-y-1"
+          >
+            {number}
+          </span>
+
+          {/* Content */}
+          <div className="relative flex-1 flex flex-col justify-end">
+            <h3 className="font-display text-display-sm text-foreground mb-3 group-hover:text-foreground transition-colors">
+              {title}
+            </h3>
+            <p className="text-xs text-foreground-muted leading-relaxed pr-8">
+              {description}
+            </p>
+          </div>
+
+          {/* Hover CTA */}
+          <div className="relative flex items-center gap-2 mt-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
+            <span className="label-text text-accent">Learn More</span>
+            <ArrowUpRight className="w-3 h-3 text-accent" />
+          </div>
+
+          {/* Bottom accent line — appears on hover */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+        </motion.article>
+      </Link>
+    </motion.div>
+  )
+}
