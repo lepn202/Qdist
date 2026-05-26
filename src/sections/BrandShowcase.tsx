@@ -1,0 +1,69 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { staggerContainer, fadeUp, fadeIn } from '@/animations/variants'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { BRANDS } from '@/lib/constants'
+
+export function BrandShowcase() {
+  const { ref, inView } = useScrollAnimation(0.15)
+
+  return (
+    <section className="bg-surface border-y border-border section-padding py-20 md:py-24">
+      <motion.div
+        ref={ref}
+        variants={staggerContainer(0, 0.06)}
+        initial="hidden"
+        animate={inView ? 'show' : 'hidden'}
+      >
+        {/* Header row */}
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12 lg:mb-16"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-px bg-accent" />
+            <span className="label-text">Distributed Brands</span>
+          </div>
+          <p className="text-xs text-foreground-muted max-w-xs">
+            Working with independent and international skate brands worldwide.
+          </p>
+        </motion.div>
+
+        {/* Brand grid */}
+        <motion.div
+          variants={staggerContainer(0.1, 0.05)}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-border"
+        >
+          {BRANDS.map((brand) => (
+            <BrandCell key={brand} name={brand} />
+          ))}
+        </motion.div>
+
+        {/* Footer note */}
+        <motion.p
+          variants={fadeIn}
+          className="mt-8 text-xs text-foreground-subtle text-center"
+        >
+          + more brands across Europe and worldwide
+        </motion.p>
+      </motion.div>
+    </section>
+  )
+}
+
+function BrandCell({ name }: { name: string }) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      className="group bg-surface hover:bg-surface-2 transition-colors duration-200"
+    >
+      <div className="flex items-center justify-center px-6 py-8 min-h-[100px]">
+        {/* Placeholder — replace with <Image> once real logos exist */}
+        <span className="font-display text-sm tracking-expanded text-foreground-subtle group-hover:text-foreground-muted transition-colors duration-200 text-center leading-tight">
+          {name}
+        </span>
+      </div>
+    </motion.div>
+  )
+}
