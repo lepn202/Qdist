@@ -69,19 +69,28 @@ export const STATS = [
   { value: '100%', label: 'B2B Focused' },
 ] as const
 
-export const BRANDS: string[] = [
-  'Brand One',
-  'Brand Two',
-  'Brand Three',
-  'Brand Four',
-  'Brand Five',
-  'Brand Six',
-  'Brand Seven',
-  'Brand Eight',
-  'Brand Nine',
-  'Brand Ten',
-  'Brand Eleven',
-  'Brand Twelve',
+export interface Brand {
+  /** Display name / wordmark text. */
+  name: string
+  /** Official website — opens in a new tab. */
+  url:  string
+  /**
+   * Optional logo image path under /public (e.g. '/images/brands/inpeddo.svg').
+   * When set, the logo is rendered instead of the wordmark — drop real logos
+   * in here later with no other changes required.
+   */
+  logo?: string
+}
+
+export const BRANDS: Brand[] = [
+  { name: 'Inpeddo',           url: 'https://inpeddoskateboards.com/' },
+  { name: 'Über',              url: 'https://ueberskateboards.com/' },
+  { name: 'Flytech',           url: 'https://flytecc.com/' },
+  { name: 'Blast Skates',      url: 'https://www.blastskates.com/' },
+  { name: 'Bronx',             url: 'https://bronxwheels.com/' },
+  { name: 'Skatedeluxe',       url: 'https://www.skatedeluxe.com/' },
+  { name: 'Poetic Collective', url: 'https://poeticcollective.com/' },
+  { name: 'Haze Wheels',       url: 'https://www.hazewheels.com/' },
 ]
 
 export const REFERENCES = [

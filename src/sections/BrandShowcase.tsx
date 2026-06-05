@@ -1,9 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeUp, fadeIn } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { BRANDS } from '@/lib/constants'
+import { BRANDS, type Brand } from '@/lib/constants'
 
 export function BrandShowcase() {
   const { ref, inView } = useScrollAnimation(0.15)
@@ -36,7 +37,7 @@ export function BrandShowcase() {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-border"
         >
           {BRANDS.map((brand) => (
-            <BrandCell key={brand} name={brand} />
+            <BrandCell key={brand.name} brand={brand} />
           ))}
         </motion.div>
 
@@ -52,18 +53,32 @@ export function BrandShowcase() {
   )
 }
 
-function BrandCell({ name }: { name: string }) {
+function BrandCell({ brand }: { brand: Brand }) {
   return (
-    <motion.div
+    <motion.a
       variants={fadeUp}
-      className="group bg-surface hover:bg-surface-2 transition-colors duration-200"
+      href={brand.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${brand.name}`}
+      className="group bg-surface hover:bg-surface-2 transition-colors duration-200 outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-inset"
     >
       <div className="flex items-center justify-center px-6 py-8 min-h-[100px]">
-        {/* Placeholder — replace with <Image> once real logos exist */}
-        <span className="font-display text-sm tracking-expanded text-foreground-subtle group-hover:text-foreground-muted transition-colors duration-200 text-center leading-tight">
-          {name}
-        </span>
+        {brand.logo ? (
+          <Image
+            src={brand.logo}
+            alt={`${brand.name} logo`}
+            width={140}
+            height={48}
+            className="max-h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+          />
+        ) : (
+          /* Wordmark fallback — replace by setting `logo` on the brand in constants.ts */
+          <span className="font-display text-sm tracking-expanded text-foreground-subtle group-hover:text-foreground transition-colors duration-200 text-center leading-tight">
+            {brand.name}
+          </span>
+        )}
       </div>
-    </motion.div>
+    </motion.a>
   )
 }
