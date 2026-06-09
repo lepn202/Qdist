@@ -1,9 +1,11 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown } from 'lucide-react'
 import { revealLine } from '@/animations/variants'
+import { HERO_IMAGE } from '@/lib/constants'
 
 export function Hero() {
   const { scrollY } = useScroll()
@@ -15,6 +17,21 @@ export function Hero() {
       className="relative h-svh min-h-[700px] bg-background flex flex-col overflow-hidden"
       aria-label="Hero"
     >
+      {/* Background production photo */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Darken + tint so headline stays legible */}
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-background/20" />
+      </div>
+
       {/* Grid texture */}
       <div
         aria-hidden

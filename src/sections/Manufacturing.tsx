@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { staggerContainer, fadeUp, fadeRight, fadeLeft } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
@@ -29,6 +30,18 @@ export function Manufacturing() {
           animate={leftInView ? 'show' : 'hidden'}
           className="relative bg-surface-2 min-h-[480px] lg:min-h-[620px] overflow-hidden"
         >
+          {/* Production photo */}
+          <Image
+            src="/images/production-heat-press.jpg"
+            alt="Deck pressing on the production line"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center"
+          />
+          {/* Darken so overlaid copy stays legible */}
+          <div aria-hidden className="absolute inset-0 bg-background/70" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+
           {/* Industrial grid texture */}
           <div
             aria-hidden

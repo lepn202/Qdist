@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, SOCIAL_LINKS, SERVICES, FOUNDED_YEAR } from '@/lib/constants'
 
@@ -16,11 +17,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex flex-col leading-none mb-5">
-              <span className="font-display text-2xl text-foreground tracking-expanded">
-                Quarter
-              </span>
-              <span className="label-text text-[9px] mt-0.5">Distribution</span>
+            <Link href="/" className="inline-flex mb-5">
+              <Image
+                src="/images/quarter-dist-logo-white.png"
+                alt="Quarter Distribution"
+                width={591}
+                height={296}
+                className="h-11 w-auto"
+              />
             </Link>
             <p className="text-xs text-foreground-muted leading-relaxed max-w-[220px]">
               Premium European skateboard distribution & OEM manufacturing since {FOUNDED_YEAR}.

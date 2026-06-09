@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
@@ -26,15 +27,17 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col leading-none group"
+            className="group flex items-center"
             aria-label="Quarter Distribution — Home"
           >
-            <span className="font-display text-xl text-foreground tracking-expanded">
-              Quarter
-            </span>
-            <span className="label-text text-[9px] mt-0.5 text-foreground-muted group-hover:text-foreground transition-colors">
-              Distribution
-            </span>
+            <Image
+              src="/images/quarter-dist-logo-white.png"
+              alt="Quarter Distribution"
+              width={591}
+              height={296}
+              priority
+              className="h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+            />
           </Link>
 
           {/* Desktop nav */}
