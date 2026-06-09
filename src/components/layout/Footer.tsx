@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, SOCIAL_LINKS, SERVICES, FOUNDED_YEAR } from '@/lib/constants'
+import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, SOCIAL_LINKS, FOUNDED_YEAR } from '@/lib/constants'
 
-const serviceLinks = SERVICES.map((s) => ({
-  label: s.title,
-  href:  `/${s.slug}`,
-}))
+const serviceLinks = [
+  { label: 'Distribution', href: '/services' },
+  { label: 'OEM Production', href: '/services' },
+  { label: 'Custom Decks', href: '/services' },
+  { label: 'Grip Tape', href: '/services' },
+]
 
 export function Footer() {
   const year = new Date().getFullYear()

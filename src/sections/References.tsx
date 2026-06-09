@@ -39,10 +39,10 @@ export function References() {
         className="mt-12 flex items-center justify-center"
       >
         <a
-          href="/references"
+          href="/brands"
           className="label-text text-foreground-muted hover:text-foreground transition-colors border-b border-foreground-subtle hover:border-foreground pb-0.5"
         >
-          View All References →
+          More on our partners →
         </a>
       </motion.div>
     </section>

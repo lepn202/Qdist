@@ -8,13 +8,9 @@ export const CONTACT_PHONE = '+49 000 000 0000'
 export const CONTACT_ADDRESS = 'Europe'
 
 export const NAV_LINKS = [
-  { label: 'Brands',       href: '/brands' },
-  { label: 'Distribution', href: '/distribution' },
-  { label: 'Production',   href: '/production' },
-  { label: 'OEM',          href: '/oem' },
-  { label: 'References',   href: '/references' },
-  { label: 'About',        href: '/about' },
-  { label: 'Contact',      href: '/contact' },
+  { label: 'Services', href: '/services' },
+  { label: 'Brands',   href: '/brands' },
+  { label: 'Contact',  href: '/contact' },
 ] as const
 
 export const SERVICES = [
