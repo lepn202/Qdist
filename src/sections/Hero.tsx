@@ -130,10 +130,10 @@ export function Hero() {
               Become a Dealer
             </Link>
             <Link
-              href="/production"
+              href="/services"
               className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-7 py-4 hover:border-foreground/40 hover:text-foreground transition-colors duration-200 font-sans"
             >
-              Explore Production
+              Our Services
             </Link>
           </div>
         </motion.div>
