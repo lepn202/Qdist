@@ -3,6 +3,7 @@ import { Hero }           from '@/sections/Hero'
 import { ServicesGrid }   from '@/sections/ServicesGrid'
 import { BrandShowcase }  from '@/sections/BrandShowcase'
 import { Manufacturing }  from '@/sections/Manufacturing'
+import { Gallery }        from '@/sections/Gallery'
 import { References }     from '@/sections/References'
 import { CTASection }     from '@/sections/CTASection'
 import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/constants'
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ServicesGrid />
       <BrandShowcase />
       <Manufacturing />
+      <Gallery />
       <References />
       <CTASection />
     </>
