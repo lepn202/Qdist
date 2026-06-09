@@ -1,10 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { HQ_IMAGE } from '@/lib/constants'
 
 export function CTASection() {
   const { ref, inView } = useScrollAnimation(0.2)
@@ -14,6 +16,18 @@ export function CTASection() {
       className="bg-background section-padding py-28 md:py-36 lg:py-44 relative overflow-hidden"
       aria-label="Call to action"
     >
+      {/* Background HQ photo */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <Image
+          src={HQ_IMAGE}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-20"
+        />
+        <div className="absolute inset-0 bg-background/80" />
+      </div>
+
       {/* Background large text watermark */}
       <div
         aria-hidden

@@ -22,6 +22,7 @@ export const SERVICES = [
     number: '01',
     title: 'Distribution',
     slug: 'distribution',
+    image: '/images/distribution-shipping.jpg',
     description:
       'Pan-European distribution network with fast turnaround and dedicated account management for skate shops and retailers.',
   },
@@ -29,6 +30,7 @@ export const SERVICES = [
     number: '02',
     title: 'OEM Production',
     slug: 'oem',
+    image: '/images/production-boards.jpg',
     description:
       'Full-service OEM manufacturing for international brands — from sampling to mass production under your label.',
   },
@@ -36,6 +38,7 @@ export const SERVICES = [
     number: '03',
     title: 'Custom Decks',
     slug: 'production',
+    image: '/images/product-square-tails.jpg',
     description:
       "Premium maple deck production with custom pressing, shapes, and print — tailored to your brand's exact specifications.",
   },
@@ -43,6 +46,7 @@ export const SERVICES = [
     number: '04',
     title: 'Warehousing',
     slug: 'distribution',
+    image: '/images/distribution-container-1.jpg',
     description:
       'Central European logistics hub with flexible storage, pick-and-pack, and direct-to-retailer fulfillment solutions.',
   },
@@ -50,6 +54,7 @@ export const SERVICES = [
     number: '05',
     title: 'Grip Tape',
     slug: 'production',
+    image: '/images/production-gripping.jpg',
     description:
       'Custom grip tape printing, die-cutting, and bulk supply. Full colour, spot colour, and branded packaging available.',
   },
@@ -57,6 +62,7 @@ export const SERVICES = [
     number: '06',
     title: 'Hardware',
     slug: 'distribution',
+    image: '/images/product-superply-shapes.jpg',
     description:
       'Complete hardware range — trucks, wheels, bearings, and accessories — sourced from premium manufacturers worldwide.',
   },
@@ -126,6 +132,20 @@ export const CAPABILITIES = [
   'Private Label Packaging',
   'Quality Control Inspection',
   'Same-Day Dispatch',
+] as const
+
+export const HERO_IMAGE = '/images/production-print.jpg'
+export const HQ_IMAGE = '/images/welcome.jpg'
+
+export const GALLERY = [
+  { src: '/images/action-360-flip.jpg',     alt: 'Tobi — 360 flip, Berlin' },
+  { src: '/images/action-crook.jpg',        alt: 'Tobi — crooked grind, Berlin' },
+  { src: '/images/action-no-comply.jpg',    alt: 'Loco — 180 no-comply, Berlin' },
+  { src: '/images/action-switch-heel.jpg',  alt: 'Alva — switch heelflip' },
+  { src: '/images/action-fs-shove.jpg',     alt: 'Patricc — frontside shove-it, Berlin' },
+  { src: '/images/action-kickflip.jpg',     alt: 'Daniel — backside tail kickflip, Berlin' },
+  { src: '/images/action-noseslide.jpg',    alt: 'Alva — frontside noseslide' },
+  { src: '/images/production-scratching-room.jpg', alt: 'Freshly pressed decks in the scratching room' },
 ] as const
 
 export const SOCIAL_LINKS = [

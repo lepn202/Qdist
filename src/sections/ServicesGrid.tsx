@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
@@ -40,11 +41,13 @@ function ServiceCard({
   title,
   description,
   slug,
+  image,
 }: {
   number:      string
   title:       string
   description: string
   slug:        string
+  image:       string
 }) {
   return (
     <motion.div variants={fadeUp}>
@@ -54,6 +57,18 @@ function ServiceCard({
           whileHover="hover"
           className="relative bg-surface p-8 lg:p-10 min-h-[280px] flex flex-col justify-between overflow-hidden transition-colors duration-300 group-hover:bg-surface-2"
         >
+          {/* Background photo — dim by default, surfaces on hover */}
+          <div aria-hidden className="absolute inset-0 pointer-events-none">
+            <Image
+              src={image}
+              alt=""
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover opacity-15 grayscale scale-105 transition-all duration-500 group-hover:opacity-35 group-hover:grayscale-0 group-hover:scale-100"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-surface/40 transition-colors duration-300 group-hover:from-surface-2 group-hover:via-surface-2/75" />
+          </div>
+
           {/* Number — decorative */}
           <span
             aria-hidden
