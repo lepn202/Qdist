@@ -89,35 +89,40 @@ export interface Brand {
 export const BRANDS: Brand[] = [
   { name: 'Inpeddo',           url: 'https://inpeddoskateboards.com/' },
   { name: 'Über',              url: 'https://ueberskateboards.com/' },
-  { name: 'Flytech',           url: 'https://flytecc.com/' },
   { name: 'Blast Skates',      url: 'https://www.blastskates.com/' },
-  { name: 'Bronx',             url: 'https://bronxwheels.com/' },
-  { name: 'Skatedeluxe',       url: 'https://www.skatedeluxe.com/' },
+  { name: 'Bronx Wheels',      url: 'https://bronxwheels.com/' },
   { name: 'Poetic Collective', url: 'https://poeticcollective.com/' },
   { name: 'Haze Wheels',       url: 'https://www.hazewheels.com/' },
+  { name: 'Flytech',           url: 'https://flytecc.com/' },
+  { name: 'Bolzen Trucks',     url: 'https://www.bolzentrucks.com/' },
+  { name: 'Tremendous Trucks', url: 'https://b2b.quarterdist.com/collections/tremendous-trucks' },
+  { name: 'Skip Skateboards',  url: 'https://b2b.quarterdist.com/collections/skip-skateboards' },
+  { name: 'BroTection',        url: 'https://brotectiongear.com/' },
+  { name: 'Loomi Boards',      url: 'https://www.loomiboards.com/' },
+  { name: 'Yamato Living Ramps', url: 'https://www.yamatoramps.de/en/' },
 ]
 
 export const REFERENCES = [
   {
     quote:
-      'Quarter Distribution has been an essential partner for our European expansion. Reliable, professional, and truly passionate about skateboarding.',
-    author: 'Distribution Partner',
-    company: 'International Skate Brand',
-    location: 'USA',
-  },
-  {
-    quote:
-      'Their OEM production quality is outstanding. The precision and consistency across large runs is exactly what we need to maintain our brand standards.',
-    author: 'Brand Director',
-    company: 'European Skateboard Co.',
+      'One of the best skateboard hardware distributions in Europe. Ordering through the B2B shop is effortless, stock is reliable, and delivery is consistently fast — exactly what a shop needs.',
+    author: 'Buyer',
+    company: 'Independent Skate Shop',
     location: 'Germany',
   },
   {
     quote:
-      'From first contact to delivery, the process is seamless. We\'ve scaled significantly thanks to their logistics infrastructure.',
-    author: 'Operations Manager',
-    company: 'Specialty Retailer',
-    location: 'UK',
+      'Their in-house production quality is outstanding. Every deck is individually pressed and passes three separate quality controls, so the consistency across large runs keeps our brand standards high.',
+    author: 'Brand Director',
+    company: 'European Skateboard Label',
+    location: 'EU',
+  },
+  {
+    quote:
+      'From the first order to delivery the process is seamless, and their support for contests and the wider scene shows they genuinely care about skateboarding — not just the sale.',
+    author: 'Distribution Partner',
+    company: 'International Skate Brand',
+    location: 'Worldwide',
   },
 ] as const
 

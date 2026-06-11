@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { revealLine } from '@/animations/variants'
-import { HERO_IMAGE } from '@/lib/constants'
+import { HERO_IMAGE, B2B_SHOP_URL } from '@/lib/constants'
 
 export function Hero() {
   const { scrollY } = useScroll()
@@ -123,12 +123,15 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/dealer-login"
-              className="bg-accent text-white text-xs tracking-extra-wide uppercase px-7 py-4 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
+            <a
+              href={B2B_SHOP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-7 py-4 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
             >
-              Become a Dealer
-            </Link>
+              B2B Shop
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+            </a>
             <Link
               href="/services"
               className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-7 py-4 hover:border-foreground/40 hover:text-foreground transition-colors duration-200 font-sans"

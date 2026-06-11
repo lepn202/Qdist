@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { HQ_IMAGE } from '@/lib/constants'
+import { HQ_IMAGE, B2B_SHOP_URL, CONTACT_EMAIL } from '@/lib/constants'
 
 export function CTASection() {
   const { ref, inView } = useScrollAnimation(0.2)
@@ -71,13 +71,15 @@ export function CTASection() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
-          <Link
-            href="/dealer-login"
+          <a
+            href={B2B_SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-8 py-5 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
           >
-            Register as Dealer
+            Visit B2B Shop
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="group flex items-center gap-2 border border-border text-foreground text-xs tracking-extra-wide uppercase px-8 py-5 hover:border-foreground/40 transition-colors duration-200 font-sans"
@@ -100,12 +102,12 @@ export function CTASection() {
           <span className="w-4 h-px bg-border" />
           <span className="label-text text-foreground-subtle">Global Shipping</span>
         </div>
-        <Link
-          href="/contact"
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
           className="text-xs text-foreground-subtle hover:text-foreground-muted transition-colors"
         >
-          info@quarterdist.com
-        </Link>
+          {CONTACT_EMAIL}
+        </a>
       </div>
     </section>
   )
