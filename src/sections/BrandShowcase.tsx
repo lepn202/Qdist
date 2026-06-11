@@ -61,24 +61,37 @@ function BrandCell({ brand }: { brand: Brand }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Visit ${brand.name}`}
-      className="group bg-surface hover:bg-surface-2 transition-colors duration-200 outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-inset"
+      className="group relative bg-surface hover:bg-surface-2 transition-colors duration-200 overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-inset"
     >
-      <div className="flex items-center justify-center px-6 py-8 min-h-[100px]">
-        {brand.logo ? (
+      {brand.image ? (
+        /* Full-bleed brand tile (photo + logo) */
+        <div className="relative aspect-[16/10] w-full">
           <Image
-            src={brand.logo}
-            alt={`${brand.name} logo`}
-            width={140}
-            height={48}
-            className="max-h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+            src={brand.image}
+            alt={brand.name}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+            className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-300 ease-out"
           />
-        ) : (
-          /* Wordmark fallback — replace by setting `logo` on the brand in constants.ts */
-          <span className="font-display text-sm tracking-expanded text-foreground-subtle group-hover:text-foreground transition-colors duration-200 text-center leading-tight">
-            {brand.name}
-          </span>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="flex items-center justify-center px-6 py-8 min-h-[100px]">
+          {brand.logo ? (
+            <Image
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              width={140}
+              height={48}
+              className="max-h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+            />
+          ) : (
+            /* Wordmark fallback — replace by setting `image` or `logo` on the brand in constants.ts */
+            <span className="font-display text-sm tracking-expanded text-foreground-subtle group-hover:text-foreground transition-colors duration-200 text-center leading-tight">
+              {brand.name}
+            </span>
+          )}
+        </div>
+      )}
     </motion.a>
   )
 }

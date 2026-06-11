@@ -79,9 +79,16 @@ export interface Brand {
   /** Official website — opens in a new tab. */
   url:  string
   /**
-   * Optional logo image path under /public (e.g. '/images/brands/inpeddo.svg').
-   * When set, the logo is rendered instead of the wordmark — drop real logos
-   * in here later with no other changes required.
+   * Optional rectangular brand tile (photo + logo composition), e.g.
+   * '/images/brands/blast-skates.jpg'. When set, the image fills the cell
+   * edge-to-edge — this is the richest treatment and matches the tiles used
+   * on quarterdist.com.
+   */
+  image?: string
+  /**
+   * Optional transparent logo (e.g. '/images/brands/inpeddo.svg'). Rendered
+   * centered on the dark cell when no `image` is set. Prefer white/transparent
+   * logos so they read on the dark background.
    */
   logo?: string
 }
