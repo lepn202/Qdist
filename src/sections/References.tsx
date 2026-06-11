@@ -5,17 +5,18 @@ import { Quote } from 'lucide-react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { REFERENCES } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function References() {
   const { ref, inView } = useScrollAnimation(0.1)
+  const t = useT()
 
   return (
     <section className="bg-surface border-y border-border section-padding section-py">
       <SectionHeader
-        label="References"
-        title="Trusted by the Industry"
-        description="Long-term relationships with brands, retailers, and manufacturers across Europe and beyond."
+        label={t.references.label}
+        title={t.references.title}
+        description={t.references.description}
         className="mb-16 lg:mb-20"
       />
 
@@ -26,8 +27,8 @@ export function References() {
         animate={inView ? 'show' : 'hidden'}
         className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border"
       >
-        {REFERENCES.map((ref, i) => (
-          <ReferenceCard key={i} {...ref} index={i} />
+        {t.references.items.map((item, i) => (
+          <ReferenceCard key={i} {...item} index={i} />
         ))}
       </motion.div>
 
@@ -42,7 +43,7 @@ export function References() {
           href="/brands"
           className="label-text text-foreground-muted hover:text-foreground transition-colors border-b border-foreground-subtle hover:border-foreground pb-0.5"
         >
-          More on our partners →
+          {t.references.more}
         </a>
       </motion.div>
     </section>

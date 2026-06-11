@@ -5,11 +5,13 @@ import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { staggerContainer, fadeUp, fadeRight, fadeLeft } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { STATS, CAPABILITIES } from '@/lib/constants'
+import { STATS } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function Manufacturing() {
   const { ref: leftRef, inView: leftInView }   = useScrollAnimation(0.2)
   const { ref: rightRef, inView: rightInView } = useScrollAnimation(0.15)
+  const t = useT()
 
   return (
     <section className="bg-background section-py overflow-hidden" aria-label="Manufacturing">
@@ -17,7 +19,7 @@ export function Manufacturing() {
       <div className="section-padding mb-0">
         <div className="flex items-center gap-3 mb-0">
           <div className="w-6 h-px bg-accent" />
-          <span className="label-text">Manufacturing</span>
+          <span className="label-text">{t.manufacturing.label}</span>
         </div>
       </div>
 
@@ -57,7 +59,7 @@ export function Manufacturing() {
           {/* Layered text overlay */}
           <div className="absolute inset-0 flex flex-col justify-between section-padding py-10">
             <span className="label-text text-foreground-subtle">
-              European Manufacturing
+              {t.manufacturing.european}
             </span>
 
             <div>
@@ -65,17 +67,17 @@ export function Manufacturing() {
                 aria-hidden
                 className="font-display text-[clamp(3rem,7vw,6rem)] leading-display text-foreground/[0.06] mb-6 select-none"
               >
-                MADE IN<br />EUROPE
+                {t.manufacturing.madeInLine1}<br />{t.manufacturing.madeInLine2}
               </p>
               <h2 className="font-display text-display-md text-foreground leading-display">
-                Precision-Built.<br />
-                <span className="text-foreground/40">Premium Materials.</span>
+                {t.manufacturing.precisionLine1}<br />
+                <span className="text-foreground/40">{t.manufacturing.precisionLine2}</span>
               </h2>
             </div>
 
             {/* Capabilities list */}
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2 mt-6">
-              {CAPABILITIES.slice(0, 6).map((cap) => (
+              {t.manufacturing.capabilities.slice(0, 6).map((cap) => (
                 <li key={cap} className="flex items-center gap-2">
                   <Check className="w-3 h-3 text-accent flex-shrink-0" />
                   <span className="text-xs text-foreground-muted">{cap}</span>
@@ -102,16 +104,14 @@ export function Manufacturing() {
               variants={fadeRight}
               className="font-display text-display-lg text-foreground leading-display mb-6"
             >
-              Manufacturing<br />
-              <span className="text-foreground/30">Excellence</span>
+              {t.manufacturing.headlineLine1}<br />
+              <span className="text-foreground/30">{t.manufacturing.headlineLine2}</span>
             </motion.h2>
             <motion.p
               variants={fadeRight}
               className="text-sm text-foreground-muted leading-relaxed max-w-md"
             >
-              From custom pressing to full OEM runs, our European production infrastructure
-              delivers consistent quality at scale. Every deck, grip, and hardware piece
-              is produced to strict tolerances with full QC inspection.
+              {t.manufacturing.description}
             </motion.p>
           </div>
 
@@ -120,30 +120,27 @@ export function Manufacturing() {
             variants={staggerContainer(0, 0.08)}
             className="grid grid-cols-2 gap-px bg-border my-10"
           >
-            {STATS.map((stat) => (
+            {STATS.map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={stat.value}
                 variants={fadeUp}
                 className="bg-background p-6"
               >
                 <span className="font-display text-display-md text-foreground block leading-none mb-2">
                   {stat.value}
                 </span>
-                <span className="label-text text-foreground-subtle">{stat.label}</span>
+                <span className="label-text text-foreground-subtle">{t.stats[i]}</span>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Process highlights */}
           <motion.div variants={fadeRight}>
-            <p className="label-text text-foreground-subtle mb-4">Process</p>
+            <p className="label-text text-foreground-subtle mb-4">{t.manufacturing.process}</p>
             <div className="flex flex-col gap-0 border-t border-border">
-              {[
-                ['01', 'Sampling & Prototyping'],
-                ['02', 'Material Sourcing'],
-                ['03', 'Production Run'],
-                ['04', 'QC Inspection & Dispatch'],
-              ].map(([n, label]) => (
+              {t.manufacturing.steps.map((label, i) => {
+                const n = String(i + 1).padStart(2, '0')
+                return (
                 <div
                   key={n}
                   className="flex items-center justify-between py-4 border-b border-border group hover:bg-surface transition-colors duration-150 px-0"
@@ -153,7 +150,8 @@ export function Manufacturing() {
                     {label}
                   </span>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </motion.div>
         </motion.div>

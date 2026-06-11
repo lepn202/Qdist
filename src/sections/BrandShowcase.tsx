@@ -6,9 +6,11 @@ import { motion } from 'framer-motion'
 import { staggerContainer, fadeUp, fadeIn } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { BRANDS, type Brand } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function BrandShowcase() {
   const { ref, inView } = useScrollAnimation(0.15)
+  const t = useT()
 
   return (
     <section className="bg-surface border-y border-border section-padding py-20 md:py-24">
@@ -25,10 +27,10 @@ export function BrandShowcase() {
         >
           <div className="flex items-center gap-3">
             <div className="w-6 h-px bg-accent" />
-            <span className="label-text">Distributed Brands</span>
+            <span className="label-text">{t.brandShowcase.label}</span>
           </div>
           <p className="text-xs text-foreground-muted max-w-xs">
-            Working with independent and international skate brands worldwide.
+            {t.brandShowcase.description}
           </p>
         </motion.div>
 
@@ -47,7 +49,7 @@ export function BrandShowcase() {
           variants={fadeIn}
           className="mt-8 text-xs text-foreground-subtle text-center"
         >
-          + more brands across Europe and worldwide
+          {t.brandShowcase.footerNote}
         </motion.p>
       </motion.div>
     </section>
@@ -58,6 +60,7 @@ function BrandCell({ brand }: { brand: Brand }) {
   // If a pre-wired tile/logo file isn't present yet (404), fall back to the
   // wordmark instead of a broken image. Each cell upgrades to its tile
   // automatically once the matching file lands in /public/images/brands.
+  const t = useT()
   const [imageError, setImageError] = useState(false)
   const [logoError, setLogoError] = useState(false)
 
@@ -70,7 +73,7 @@ function BrandCell({ brand }: { brand: Brand }) {
       href={brand.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Visit ${brand.name}`}
+      aria-label={`${t.brandShowcase.visit} ${brand.name}`}
       className="group relative bg-surface hover:bg-surface-2 transition-colors duration-200 overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-inset"
     >
       {showImage ? (

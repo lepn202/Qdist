@@ -5,12 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { revealLine } from '@/animations/variants'
-import { HERO_IMAGE, B2B_SHOP_URL } from '@/lib/constants'
+import { HERO_IMAGE, B2B_SHOP_URL, FOUNDED_YEAR } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function Hero() {
   const { scrollY } = useScroll()
   const contentY   = useTransform(scrollY, [0, 600], [0, 80])
   const contentOp  = useTransform(scrollY, [0, 500], [1, 0])
+  const t = useT()
 
   return (
     <section
@@ -63,13 +65,13 @@ export function Hero() {
       >
         <div className="flex items-center gap-5">
           <span className="label-text text-foreground-subtle">
-            Est. {new Date().getFullYear() - 10 < 2013 ? 2013 : 2013}
+            {t.hero.est} {FOUNDED_YEAR}
           </span>
           <span className="w-5 h-px bg-foreground-subtle/50" />
-          <span className="label-text text-foreground-subtle">Europe</span>
+          <span className="label-text text-foreground-subtle">{t.hero.europe}</span>
         </div>
         <span className="hidden md:block label-text text-foreground-subtle">
-          Distribution · Production · OEM
+          {t.hero.metaRight}
         </span>
       </motion.div>
 
@@ -86,12 +88,12 @@ export function Hero() {
           transition={{ delay: 0.55, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="w-6 h-px bg-accent" />
-          <span className="label-text">Quarter Distribution</span>
+          <span className="label-text">{t.hero.label}</span>
         </motion.div>
 
         {/* Headline — each word on own line with mask-clip reveal */}
         <div className="mb-10 md:mb-12">
-          {['European', 'Skateboard', 'Distribution', '& Manufacturing'].map(
+          {t.hero.words.map(
             (word, i) => (
               <div key={word} className="overflow-hidden">
                 <motion.span
@@ -118,8 +120,7 @@ export function Hero() {
           transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-sm text-foreground-muted max-w-xs leading-relaxed">
-            Premium skateboard distribution, OEM manufacturing &amp; custom production for
-            global brands. 10+ years of industry experience.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -129,14 +130,14 @@ export function Hero() {
               rel="noopener noreferrer"
               className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-7 py-4 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
             >
-              B2B Shop
+              {t.hero.b2bShop}
               <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
             <Link
               href="/services"
               className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-7 py-4 hover:border-foreground/40 hover:text-foreground transition-colors duration-200 font-sans"
             >
-              Our Services
+              {t.hero.ourServices}
             </Link>
           </div>
         </motion.div>
@@ -151,7 +152,7 @@ export function Hero() {
         aria-hidden
       >
         <span className="label-text text-[9px] text-foreground-subtle [writing-mode:vertical-lr] rotate-180">
-          Scroll
+          {t.hero.scroll}
         </span>
         <motion.div
           animate={{ y: [0, 7, 0] }}

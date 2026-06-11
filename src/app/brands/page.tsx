@@ -6,9 +6,11 @@ import { BrandShowcase } from '@/sections/BrandShowcase'
 import { References } from '@/sections/References'
 import { fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { useT } from '@/i18n/LanguageProvider'
 
 function PageHero() {
   const { ref, inView } = useScrollAnimation(0.1)
+  const t = useT()
 
   return (
     <section className="relative bg-background overflow-hidden border-b border-border">
@@ -36,21 +38,20 @@ function PageHero() {
       >
         <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
           <div className="w-6 h-px bg-accent" />
-          <span className="label-text">Brands & References</span>
+          <span className="label-text">{t.brandsPage.label}</span>
         </motion.div>
         <motion.h1
           variants={fadeUp}
           className="font-display text-display-xl text-foreground leading-display mb-6 max-w-2xl"
         >
-          The Brands<br />
-          <span className="text-foreground/40">We Stand Behind</span>
+          {t.brandsPage.titleLine1}<br />
+          <span className="text-foreground/40">{t.brandsPage.titleLine2}</span>
         </motion.h1>
         <motion.p
           variants={fadeUp}
           className="text-sm text-foreground-muted leading-relaxed max-w-md"
         >
-          Independent and international skate brands distributed across Europe — plus
-          what our partners say about working with us.
+          {t.brandsPage.description}
         </motion.p>
       </motion.div>
     </section>

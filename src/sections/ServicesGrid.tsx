@@ -8,16 +8,18 @@ import { SectionHeader } from '@/components/shared/SectionHeader'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SERVICES } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function ServicesGrid() {
   const { ref, inView } = useScrollAnimation(0.1)
+  const t = useT()
 
   return (
     <section className="bg-background section-padding section-py">
       <SectionHeader
-        label="What We Do"
-        title="Full-Stack Skate Services"
-        description="From pressing your first deck to distributing your brand across Europe — everything under one roof."
+        label={t.servicesGrid.label}
+        title={t.servicesGrid.title}
+        description={t.servicesGrid.description}
         className="mb-16 lg:mb-20"
       />
 
@@ -28,8 +30,16 @@ export function ServicesGrid() {
         animate={inView ? 'show' : 'hidden'}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border"
       >
-        {SERVICES.map((service) => (
-          <ServiceCard key={service.number} {...service} />
+        {SERVICES.map((service, i) => (
+          <ServiceCard
+            key={service.number}
+            number={service.number}
+            slug={service.slug}
+            image={service.image}
+            title={t.servicesGrid.items[i].title}
+            description={t.servicesGrid.items[i].description}
+            cta={t.servicesGrid.learnMore}
+          />
         ))}
       </motion.div>
     </section>
@@ -42,12 +52,14 @@ function ServiceCard({
   description,
   slug,
   image,
+  cta,
 }: {
   number:      string
   title:       string
   description: string
   slug:        string
   image:       string
+  cta:         string
 }) {
   return (
     <motion.div variants={fadeUp}>
@@ -89,7 +101,7 @@ function ServiceCard({
 
           {/* Hover CTA */}
           <div className="relative flex items-center gap-2 mt-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-            <span className="label-text text-accent">Learn More</span>
+            <span className="label-text text-accent">{cta}</span>
             <ArrowUpRight className="w-3 h-3 text-accent" />
           </div>
 
