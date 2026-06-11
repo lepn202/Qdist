@@ -5,13 +5,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import { staggerContainer, fadeUp, fadeRight } from '@/animations/variants'
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_ADDRESS, FOUNDED_YEAR } from '@/lib/constants'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_ADDRESS, FOUNDED_YEAR, B2B_SHOP_URL } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 const INQUIRY_TYPES = [
   'Distribution Partnership',
   'OEM / Custom Production',
-  'Dealer Application',
+  'Wholesale / B2B',
   'General Inquiry',
 ]
 
@@ -137,10 +137,15 @@ function ContactForm() {
       </button>
 
       <p className="text-[11px] text-foreground-subtle">
-        B2B inquiries only. For dealer applications use the{' '}
-        <Link href="/dealer-login" className="underline hover:text-foreground-muted transition-colors">
-          Dealer Portal
-        </Link>
+        B2B inquiries only. To browse and order our full range, visit the{' '}
+        <a
+          href={B2B_SHOP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-foreground-muted transition-colors"
+        >
+          B2B Shop
+        </a>
         .
       </p>
     </form>
@@ -168,7 +173,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-sm text-foreground-muted leading-relaxed max-w-md">
             Whether you're looking to distribute your brand, start a production run,
-            or become a dealer — we'd like to hear from you.
+            or stock our brands — we'd like to hear from you.
           </p>
         </motion.div>
       </section>
@@ -222,21 +227,30 @@ export default function ContactPage() {
               <p className="label-text text-foreground-subtle mb-6">Quick Links</p>
               <div className="flex flex-col gap-0 border-t border-border">
                 {[
-                  { label: 'View Our Services',         href: '/services' },
-                  { label: 'Brands We Distribute',      href: '/brands' },
-                  { label: 'Dealer Portal',             href: '/dealer-login' },
-                ].map(({ label, href }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="group flex items-center justify-between py-4 border-b border-border hover:bg-surface transition-colors duration-150 -mx-2 px-2"
-                  >
-                    <span className="text-xs text-foreground-muted group-hover:text-foreground transition-colors">
-                      {label}
-                    </span>
-                    <ArrowUpRight className="w-3 h-3 text-foreground-subtle opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                ))}
+                  { label: 'View Our Services',    href: '/services',   external: false },
+                  { label: 'Brands We Distribute', href: '/brands',     external: false },
+                  { label: 'B2B Shop',             href: B2B_SHOP_URL,  external: true  },
+                ].map(({ label, href, external }) => {
+                  const className =
+                    'group flex items-center justify-between py-4 border-b border-border hover:bg-surface transition-colors duration-150 -mx-2 px-2'
+                  const inner = (
+                    <>
+                      <span className="text-xs text-foreground-muted group-hover:text-foreground transition-colors">
+                        {label}
+                      </span>
+                      <ArrowUpRight className="w-3 h-3 text-foreground-subtle opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </>
+                  )
+                  return external ? (
+                    <a key={href} href={href} target="_blank" rel="noopener noreferrer" className={className}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link key={href} href={href} className={className}>
+                      {inner}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
 

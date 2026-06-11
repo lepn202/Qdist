@@ -53,7 +53,7 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Dealer CTA */}
+          {/* B2B CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={B2B_SHOP_URL}

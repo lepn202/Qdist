@@ -2,58 +2,109 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 import { ServicesGrid } from '@/sections/ServicesGrid'
 import { Manufacturing } from '@/sections/Manufacturing'
 import { Gallery } from '@/sections/Gallery'
 import { CTASection } from '@/sections/CTASection'
-import { fadeUp } from '@/animations/variants'
+import { staggerContainer, fadeUp, fadeRight } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { STATS, B2B_SHOP_URL } from '@/lib/constants'
 
 function PageHero() {
   const { ref, inView } = useScrollAnimation(0.1)
 
   return (
-    <section className="relative bg-background overflow-hidden border-b border-border">
-      {/* Background production photo */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <Image
-          src="/images/production-boards.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Darken + tint so headline stays legible */}
-        <div className="absolute inset-0 bg-background/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-      </div>
-
+    <section className="relative bg-background overflow-hidden border-b border-border section-padding pt-32 pb-16 md:pt-40 md:pb-20">
       <motion.div
         ref={ref}
+        variants={staggerContainer(0, 0.1)}
         initial="hidden"
         animate={inView ? 'show' : 'hidden'}
-        className="relative z-10 section-padding pt-36 pb-20 md:pt-44 md:pb-28"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
       >
-        <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
-          <div className="w-6 h-px bg-accent" />
-          <span className="label-text">Services</span>
+        {/* Left — copy */}
+        <div>
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+            <div className="w-6 h-px bg-accent" />
+            <span className="label-text">Services</span>
+          </motion.div>
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-display-xl text-foreground leading-display mb-6"
+          >
+            Distribution,<br />
+            <span className="text-foreground/40">Production & OEM</span>
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="text-sm text-foreground-muted leading-relaxed max-w-md"
+          >
+            Everything from pressing your first deck to distributing your brand across
+            Europe — under one roof, since 2013. More than 100,000 boards produced in
+            Germany every year.
+          </motion.p>
+
+          {/* Stats row */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap gap-x-10 gap-y-6 mt-10 pt-8 border-t border-border"
+          >
+            {STATS.slice(0, 3).map((stat) => (
+              <div key={stat.label}>
+                <p className="font-display text-2xl text-foreground leading-none">
+                  {stat.value}
+                </p>
+                <p className="label-text text-foreground-subtle mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mt-10">
+            <a
+              href={B2B_SHOP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-7 py-4 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
+            >
+              B2B Shop
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <Link
+              href="/contact"
+              className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-7 py-4 hover:border-foreground/40 transition-colors duration-200 font-sans"
+            >
+              Get in Touch
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Right — visible production photo */}
+        <motion.div
+          variants={fadeRight}
+          className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-[540px] overflow-hidden"
+        >
+          <Image
+            src="/images/production-print.jpg"
+            alt="Custom deck production at the Quarter Distribution press"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center"
+          />
+          {/* Subtle scrim for caption legibility */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"
+          />
+          {/* Caption tag */}
+          <div className="absolute bottom-5 left-5 flex items-center gap-3">
+            <span className="w-6 h-px bg-accent" />
+            <span className="label-text text-white/90">In-house production · Germany</span>
+          </div>
         </motion.div>
-        <motion.h1
-          variants={fadeUp}
-          className="font-display text-display-xl text-foreground leading-display mb-6 max-w-2xl"
-        >
-          Distribution,<br />
-          <span className="text-foreground/40">Production & OEM</span>
-        </motion.h1>
-        <motion.p
-          variants={fadeUp}
-          className="text-sm text-foreground-muted leading-relaxed max-w-md"
-        >
-          Everything from pressing your first deck to distributing your brand across
-          Europe — under one roof, since 2013.
-        </motion.p>
       </motion.div>
     </section>
   )

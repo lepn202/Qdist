@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, SOCIAL_LINKS, FOUNDED_YEAR } from '@/lib/constants'
+import { ArrowUpRight } from 'lucide-react'
+import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, SOCIAL_LINKS, FOUNDED_YEAR, B2B_SHOP_URL } from '@/lib/constants'
 
 const serviceLinks = [
   { label: 'Distribution', href: '/services' },
@@ -109,23 +110,28 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/dealer-login"
+                <a
+                  href={B2B_SHOP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                 >
-                  Dealer Portal
-                </Link>
+                  B2B Shop
+                </a>
               </li>
             </ul>
 
             <div className="mt-8">
               <p className="label-text mb-3 text-foreground-subtle">B2B</p>
-              <Link
-                href="/dealer-login"
-                className="inline-block bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors"
+              <a
+                href={B2B_SHOP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors"
               >
-                Become a Dealer
-              </Link>
+                B2B Shop
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
+              </a>
             </div>
           </div>
         </div>
