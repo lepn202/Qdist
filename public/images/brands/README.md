@@ -1,9 +1,13 @@
 # Brand tiles / logos
 
-Drop brand artwork in this folder, then set `image` (preferred — the
-photo+logo tiles) or `logo` (transparent logo) on the matching brand in
-`src/lib/constants.ts`. The grid falls back to a clean wordmark when neither
-is set, so the site never breaks while files are missing.
+Every brand in `src/lib/constants.ts` is **already pre-wired** to an `image`
+path below. Just drop a correctly-named file into this folder and that brand's
+cell upgrades from a wordmark to its full photo tile automatically — no code
+change needed. Until a file is present, the grid renders a clean wordmark
+(the cell detects the missing image and falls back), so the site never shows a
+broken image.
+
+Filenames must match **exactly** (lowercase, hyphenated, `.jpg`).
 
 ## Expected filenames
 
