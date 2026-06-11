@@ -112,6 +112,7 @@ export const BRANDS: Brand[] = [
   { name: 'Zupply',            url: 'https://b2b.quarterdist.com/collections/zupply' },
   { name: 'BroTection',        url: 'https://brotectiongear.com/' },
   { name: 'Jessup',            url: 'https://www.jessupmfg.com/jessup-griptape' },
+  { name: 'Ultimate Boards',   url: 'https://b2b.quarterdist.com/collections/ultimate-boards' },
   { name: 'Curfboard',         url: 'https://curfboard.com/' },
   { name: 'Yamato Living Ramps', url: 'https://www.yamatoramps.de/en/' },
   { name: 'Skateistan',        url: 'https://skateistan.org/' },

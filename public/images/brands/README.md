@@ -21,7 +21,7 @@ landscape artwork around 800×500 px works best.
 | Poetic Collective   | `poetic-collective.jpg`    | provided (blue action shot)                  |
 | Lousy Livin         | `lousy-livin.jpg`          | provided (grip tile, "by Inpeddo")           |
 | Loomi Boards        | `loomi-boards.jpg`         | provided (Little Lemon Loomi)                |
-| Skip Skateboards    | `skip-skateboards.jpg`     | not yet provided                             |
+| Skip Skateboards    | `skip-skateboards.jpg`     | provided (SKIP bubble logo)                  |
 | Flytech             | `flytech.jpg`              | not yet provided                             |
 | Bronx Wheels        | `bronx.jpg`                | provided                                     |
 | Haze Wheels         | `haze-wheels.jpg`          | provided                                     |
@@ -32,11 +32,7 @@ landscape artwork around 800×500 px works best.
 | Zupply              | `zupply.jpg`               | provided (Hard Goods)                        |
 | BroTection          | `brotection.jpg`           | provided                                     |
 | Jessup              | `jessup.jpg`               | provided                                     |
+| Ultimate Boards     | `ultimate-boards.jpg`      | provided (grip tile, beach/aerial shot)      |
 | Curfboard           | `curfboard.jpg`            | provided                                     |
 | Yamato Living Ramps | `yamato-living-ramps.jpg`  | provided (concrete skatepark)                |
 | Skateistan          | `skateistan.jpg`           | provided (non-profit partner)                |
-
-### Still unidentified
-One tile (batch 3) — a griptape deck shot on a **beach / aerial** background —
-has no readable logo and isn't matched to a brand yet. Confirm which brand it
-belongs to and it'll get a row here too.
