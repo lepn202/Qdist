@@ -25,7 +25,9 @@ Use these exact names so the brand entries can be switched on with no guesswork.
 | Skip Skateboards   | `skip-skateboards.jpg`        | `image` |                                         |
 | BroTection         | `brotection.jpg`              | `image` |                                         |
 | Loomi Boards       | `loomi-boards.jpg`            | `image` |                                         |
-| Yamato Living Ramps| `yamato-living-ramps.jpg`     | `image` |                                         |
+| Yamato Living Ramps| `yamato-living-ramps.jpg`     | `image` | Concrete skatepark shot                 |
+| Superply           | `superply.jpg`                | `image` | Quarter's own "SP / Superply" decks     |
+| Skateistan         | `skateistan.jpg`              | `image` | Supported non-profit (confirm: list it?)|
 
 Tiles render at a 16:10 ratio (`object-cover`), so landscape artwork around
 800×500 px works best.
