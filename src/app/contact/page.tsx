@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import { staggerContainer, fadeUp, fadeRight } from '@/animations/variants'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_ADDRESS, FOUNDED_YEAR } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { CONTACT_EMAIL, CONTACT_ADDRESS, FOUNDED_YEAR } from '@/lib/constants'
 
 const INQUIRY_TYPES = [
   'Distribution Partnership',
@@ -199,6 +199,13 @@ export default function ContactPage() {
                 >
                   <Mail className="w-4 h-4 text-foreground-subtle group-hover:text-accent transition-colors flex-shrink-0" />
                   {CONTACT_EMAIL}
+                </a>
+                <a
+                  href={`tel:${CONTACT_PHONE_HREF}`}
+                  className="group flex items-center gap-3 text-xs text-foreground-muted hover:text-foreground transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-foreground-subtle group-hover:text-accent transition-colors flex-shrink-0" />
+                  {CONTACT_PHONE}
                 </a>
                 <div className="flex items-center gap-3 text-xs text-foreground-muted">
                   <MapPin className="w-4 h-4 text-foreground-subtle flex-shrink-0" />

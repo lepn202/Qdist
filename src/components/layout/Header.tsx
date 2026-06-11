@@ -4,9 +4,9 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { NAV_LINKS } from '@/lib/constants'
+import { NAV_LINKS, B2B_SHOP_URL } from '@/lib/constants'
 import { useHeaderScroll } from '@/hooks/useHeaderScroll'
 
 export function Header() {
@@ -54,16 +54,19 @@ export function Header() {
           </nav>
 
           {/* Dealer CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link
-              href="/dealer-login"
-              className="text-xs tracking-label uppercase text-foreground-muted hover:text-foreground transition-colors duration-200"
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={B2B_SHOP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-1.5 bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
             >
-              Dealer Login
-            </Link>
+              B2B Shop
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+            </a>
             <Link
               href="/contact"
-              className="bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors duration-200"
+              className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-5 py-3 hover:border-foreground/40 transition-colors duration-200"
             >
               Get in Touch
             </Link>
@@ -113,17 +116,20 @@ export function Header() {
             </nav>
 
             <div className="px-6 pt-8 flex flex-col gap-3">
-              <Link
-                href="/dealer-login"
+              <a
+                href={B2B_SHOP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="border border-border text-foreground text-xs tracking-label uppercase px-6 py-4 text-center hover:border-foreground/40 transition-colors"
+                className="flex items-center justify-center gap-1.5 bg-accent text-white text-xs tracking-label uppercase px-6 py-4 text-center hover:bg-accent-hover transition-colors font-medium"
               >
-                Dealer Login
-              </Link>
+                B2B Shop
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="bg-accent text-white text-xs tracking-label uppercase px-6 py-4 text-center hover:bg-accent-hover transition-colors"
+                className="border border-border text-foreground text-xs tracking-label uppercase px-6 py-4 text-center hover:border-foreground/40 transition-colors"
               >
                 Get in Touch
               </Link>
