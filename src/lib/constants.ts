@@ -3,9 +3,11 @@ export const SITE_TAGLINE = 'European Skateboard Distribution & Manufacturing'
 export const SITE_DESCRIPTION =
   'Premium skateboard distribution, OEM manufacturing, and custom production for brands worldwide. Based in Europe, shipping globally.'
 export const FOUNDED_YEAR = 2013
-export const CONTACT_EMAIL = 'info@quarterdist.com'
-export const CONTACT_PHONE = '+49 000 000 0000'
+export const CONTACT_EMAIL = 'order@quarterdist.com'
+export const CONTACT_PHONE = '+49 173 9859833'
+export const CONTACT_PHONE_HREF = '+491739859833'
 export const CONTACT_ADDRESS = 'Europe'
+export const B2B_SHOP_URL = 'https://b2b.quarterdist.com/'
 
 export const NAV_LINKS = [
   { label: 'Services', href: '/services' },

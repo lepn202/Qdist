@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, SOCIAL_LINKS, FOUNDED_YEAR } from '@/lib/constants'
+import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, SOCIAL_LINKS, FOUNDED_YEAR } from '@/lib/constants'
 
 const serviceLinks = [
   { label: 'Distribution', href: '/services' },
@@ -90,6 +90,14 @@ export function Footer() {
                   className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                 >
                   {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${CONTACT_PHONE_HREF}`}
+                  className="text-xs text-foreground-muted hover:text-foreground transition-colors"
+                >
+                  {CONTACT_PHONE}
                 </a>
               </li>
               <li>
