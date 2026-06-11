@@ -8,10 +8,13 @@ import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NAV_LINKS, B2B_SHOP_URL } from '@/lib/constants'
 import { useHeaderScroll } from '@/hooks/useHeaderScroll'
+import { useT } from '@/i18n/LanguageProvider'
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher'
 
 export function Header() {
   const scrolled = useHeaderScroll(60)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const t = useT()
 
   return (
     <>
@@ -48,27 +51,29 @@ export function Header() {
                 href={link.href}
                 className="text-xs tracking-label uppercase text-foreground-muted hover:text-foreground transition-colors duration-200"
               >
-                {link.label}
+                {t.nav[link.key]}
               </Link>
             ))}
           </nav>
 
           {/* B2B CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
+            <span aria-hidden className="w-px h-4 bg-border" />
             <a
               href={B2B_SHOP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-1.5 bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
             >
-              B2B Shop
+              {t.header.b2bShop}
               <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
             <Link
               href="/contact"
               className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-5 py-3 hover:border-foreground/40 transition-colors duration-200"
             >
-              Get in Touch
+              {t.header.getInTouch}
             </Link>
           </div>
 
@@ -107,7 +112,7 @@ export function Header() {
                     className="flex items-center justify-between py-5 border-b border-border-subtle"
                   >
                     <span className="font-display text-display-sm text-foreground">
-                      {link.label}
+                      {t.nav[link.key]}
                     </span>
                     <span className="text-foreground-subtle">→</span>
                   </Link>
@@ -123,7 +128,7 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-1.5 bg-accent text-white text-xs tracking-label uppercase px-6 py-4 text-center hover:bg-accent-hover transition-colors font-medium"
               >
-                B2B Shop
+                {t.header.b2bShop}
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
               </a>
               <Link
@@ -131,8 +136,10 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="border border-border text-foreground text-xs tracking-label uppercase px-6 py-4 text-center hover:border-foreground/40 transition-colors"
               >
-                Get in Touch
+                {t.header.getInTouch}
               </Link>
+
+              <LanguageSwitcher className="mt-4 justify-center" />
             </div>
           </motion.div>
         )}

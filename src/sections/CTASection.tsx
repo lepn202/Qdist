@@ -7,9 +7,11 @@ import { ArrowUpRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { HQ_IMAGE, B2B_SHOP_URL, CONTACT_EMAIL } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function CTASection() {
   const { ref, inView } = useScrollAnimation(0.2)
+  const t = useT()
 
   return (
     <section
@@ -50,24 +52,22 @@ export function CTASection() {
       >
         <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6">
           <div className="w-6 h-px bg-accent" />
-          <span className="label-text">Work with Us</span>
+          <span className="label-text">{t.cta.label}</span>
         </motion.div>
 
         <motion.h2
           variants={fadeUp}
           className="font-display text-display-xl text-foreground leading-display mb-8"
         >
-          Ready to Scale<br />
-          <span className="text-foreground/25">Your Brand?</span>
+          {t.cta.titleLine1}<br />
+          <span className="text-foreground/25">{t.cta.titleLine2}</span>
         </motion.h2>
 
         <motion.p
           variants={fadeUp}
           className="text-sm text-foreground-muted leading-relaxed max-w-md mb-12"
         >
-          Whether you're launching a new brand, expanding distribution, or scaling
-          your OEM production — Quarter Distribution is your European partner.
-          Let's build something together.
+          {t.cta.description}
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
@@ -77,14 +77,14 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-8 py-5 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
           >
-            Visit B2B Shop
+            {t.cta.visitB2b}
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
           </a>
           <Link
             href="/contact"
             className="group flex items-center gap-2 border border-border text-foreground text-xs tracking-extra-wide uppercase px-8 py-5 hover:border-foreground/40 transition-colors duration-200 font-sans"
           >
-            Request OEM Quote
+            {t.cta.requestQuote}
             <ArrowUpRight className="w-3.5 h-3.5 text-foreground-muted opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
         </motion.div>
@@ -96,11 +96,11 @@ export function CTASection() {
       {/* Meta info row */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8">
         <div className="flex items-center gap-6">
-          <span className="label-text text-foreground-subtle">B2B Only</span>
+          <span className="label-text text-foreground-subtle">{t.cta.b2bOnly}</span>
           <span className="w-4 h-px bg-border" />
-          <span className="label-text text-foreground-subtle">Europe-Based</span>
+          <span className="label-text text-foreground-subtle">{t.cta.europeBased}</span>
           <span className="w-4 h-px bg-border" />
-          <span className="label-text text-foreground-subtle">Global Shipping</span>
+          <span className="label-text text-foreground-subtle">{t.cta.globalShipping}</span>
         </div>
         <a
           href={`mailto:${CONTACT_EMAIL}`}

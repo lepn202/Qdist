@@ -3,6 +3,7 @@ import './globals.css'
 import { bebasNeue, inter } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { LanguageProvider } from '@/i18n/LanguageProvider'
 import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -31,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
       <body className="bg-background text-foreground font-sans antialiased overflow-x-hidden">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   )

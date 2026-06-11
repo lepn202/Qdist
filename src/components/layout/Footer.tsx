@@ -1,16 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SITE_NAME, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, SOCIAL_LINKS, FOUNDED_YEAR, B2B_SHOP_URL } from '@/lib/constants'
-
-const serviceLinks = [
-  { label: 'Distribution', href: '/services' },
-  { label: 'OEM Production', href: '/services' },
-  { label: 'Custom Decks', href: '/services' },
-  { label: 'Grip Tape', href: '/services' },
-]
+import { useT } from '@/i18n/LanguageProvider'
 
 export function Footer() {
+  const t = useT()
   const year = new Date().getFullYear()
 
   return (
@@ -30,7 +27,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-xs text-foreground-muted leading-relaxed max-w-[220px]">
-              Premium European skateboard distribution & OEM manufacturing since {FOUNDED_YEAR}.
+              {t.footer.description.replace('{year}', String(FOUNDED_YEAR))}
             </p>
             <div className="flex items-center gap-4 mt-6">
               {SOCIAL_LINKS.map((link) => (
@@ -49,7 +46,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="label-text mb-5 text-foreground-subtle">Navigation</p>
+            <p className="label-text mb-5 text-foreground-subtle">{t.footer.navigation}</p>
             <ul className="flex flex-col gap-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -57,7 +54,7 @@ export function Footer() {
                     href={link.href}
                     className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                   >
-                    {link.label}
+                    {t.nav[link.key]}
                   </Link>
                 </li>
               ))}
@@ -66,15 +63,15 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <p className="label-text mb-5 text-foreground-subtle">Services</p>
+            <p className="label-text mb-5 text-foreground-subtle">{t.footer.services}</p>
             <ul className="flex flex-col gap-3">
-              {serviceLinks.map((link) => (
-                <li key={link.label}>
+              {t.footer.serviceLinks.map((label) => (
+                <li key={label}>
                   <Link
-                    href={link.href}
+                    href="/services"
                     className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                   >
-                    {link.label}
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -83,7 +80,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="label-text mb-5 text-foreground-subtle">Contact</p>
+            <p className="label-text mb-5 text-foreground-subtle">{t.footer.contact}</p>
             <ul className="flex flex-col gap-3">
               <li>
                 <a
@@ -106,7 +103,7 @@ export function Footer() {
                   href="/contact"
                   className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                 >
-                  Send an Inquiry
+                  {t.footer.sendInquiry}
                 </Link>
               </li>
               <li>
@@ -116,20 +113,20 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-xs text-foreground-muted hover:text-foreground transition-colors"
                 >
-                  B2B Shop
+                  {t.header.b2bShop}
                 </a>
               </li>
             </ul>
 
             <div className="mt-8">
-              <p className="label-text mb-3 text-foreground-subtle">B2B</p>
+              <p className="label-text mb-3 text-foreground-subtle">{t.footer.b2b}</p>
               <a
                 href={B2B_SHOP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-accent text-white text-xs tracking-extra-wide uppercase px-5 py-3 hover:bg-accent-hover transition-colors"
               >
-                B2B Shop
+                {t.header.b2bShop}
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
               </a>
             </div>
@@ -140,17 +137,17 @@ export function Footer() {
       {/* Legal bar */}
       <div className="section-padding py-5 border-t border-border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <p className="text-[11px] text-foreground-subtle">
-          © {year} {SITE_NAME}. All rights reserved.
+          © {year} {SITE_NAME}. {t.footer.rights}
         </p>
         <div className="flex items-center gap-5">
           <Link href="/privacy" className="text-[11px] text-foreground-subtle hover:text-foreground-muted transition-colors">
-            Privacy Policy
+            {t.footer.privacy}
           </Link>
           <Link href="/terms" className="text-[11px] text-foreground-subtle hover:text-foreground-muted transition-colors">
-            Terms of Service
+            {t.footer.terms}
           </Link>
           <Link href="/imprint" className="text-[11px] text-foreground-subtle hover:text-foreground-muted transition-colors">
-            Imprint
+            {t.footer.imprint}
           </Link>
         </div>
       </div>

@@ -9,10 +9,11 @@ export const CONTACT_PHONE_HREF = '+491739859833'
 export const CONTACT_ADDRESS = 'Europe'
 export const B2B_SHOP_URL = 'https://b2b.quarterdist.com/'
 
+// `key` maps to the matching label under `nav` in the i18n dictionaries.
 export const NAV_LINKS = [
-  { label: 'Services', href: '/services' },
-  { label: 'Brands',   href: '/brands' },
-  { label: 'Contact',  href: '/contact' },
+  { key: 'services', href: '/services' },
+  { key: 'brands',   href: '/brands' },
+  { key: 'contact',  href: '/contact' },
 ] as const
 
 export const SERVICES = [

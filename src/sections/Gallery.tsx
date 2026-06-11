@@ -5,9 +5,11 @@ import Image from 'next/image'
 import { staggerContainer, scaleIn } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { GALLERY } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 export function Gallery() {
   const { ref, inView } = useScrollAnimation(0.1)
+  const t = useT()
 
   return (
     <section className="bg-background section-padding py-20 md:py-24 overflow-hidden" aria-label="From the field">
@@ -15,10 +17,10 @@ export function Gallery() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 lg:mb-10">
         <div className="flex items-center gap-3">
           <div className="w-6 h-px bg-accent" />
-          <span className="label-text">From the Field</span>
+          <span className="label-text">{t.gallery.label}</span>
         </div>
         <p className="text-xs text-foreground-muted max-w-xs">
-          Boards we press, grip, and ship — out in the wild with the riders who put them to the test.
+          {t.gallery.description}
         </p>
       </div>
 

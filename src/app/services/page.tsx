@@ -11,9 +11,11 @@ import { CTASection } from '@/sections/CTASection'
 import { staggerContainer, fadeUp, fadeRight } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { STATS, B2B_SHOP_URL } from '@/lib/constants'
+import { useT } from '@/i18n/LanguageProvider'
 
 function PageHero() {
   const { ref, inView } = useScrollAnimation(0.1)
+  const t = useT()
 
   return (
     <section className="relative bg-background overflow-hidden border-b border-border section-padding pt-32 pb-16 md:pt-40 md:pb-20">
@@ -28,22 +30,20 @@ function PageHero() {
         <div>
           <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
             <div className="w-6 h-px bg-accent" />
-            <span className="label-text">Services</span>
+            <span className="label-text">{t.servicesPage.label}</span>
           </motion.div>
           <motion.h1
             variants={fadeUp}
             className="font-display text-display-xl text-foreground leading-display mb-6"
           >
-            Distribution,<br />
-            <span className="text-foreground/40">Production & OEM</span>
+            {t.servicesPage.titleLine1}<br />
+            <span className="text-foreground/40">{t.servicesPage.titleLine2}</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="text-sm text-foreground-muted leading-relaxed max-w-md"
           >
-            Everything from pressing your first deck to distributing your brand across
-            Europe — under one roof, since 2013. More than 100,000 boards produced in
-            Germany every year.
+            {t.servicesPage.description}
           </motion.p>
 
           {/* Stats row */}
@@ -51,12 +51,12 @@ function PageHero() {
             variants={fadeUp}
             className="flex flex-wrap gap-x-10 gap-y-6 mt-10 pt-8 border-t border-border"
           >
-            {STATS.slice(0, 3).map((stat) => (
-              <div key={stat.label}>
+            {STATS.slice(0, 3).map((stat, i) => (
+              <div key={stat.value}>
                 <p className="font-display text-2xl text-foreground leading-none">
                   {stat.value}
                 </p>
-                <p className="label-text text-foreground-subtle mt-2">{stat.label}</p>
+                <p className="label-text text-foreground-subtle mt-2">{t.stats[i]}</p>
               </div>
             ))}
           </motion.div>
@@ -69,14 +69,14 @@ function PageHero() {
               rel="noopener noreferrer"
               className="group flex items-center gap-2 bg-accent text-white text-xs tracking-extra-wide uppercase px-7 py-4 hover:bg-accent-hover transition-colors duration-200 font-sans font-medium"
             >
-              B2B Shop
+              {t.header.b2bShop}
               <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
             <Link
               href="/contact"
               className="border border-border text-foreground text-xs tracking-extra-wide uppercase px-7 py-4 hover:border-foreground/40 transition-colors duration-200 font-sans"
             >
-              Get in Touch
+              {t.header.getInTouch}
             </Link>
           </motion.div>
         </div>
@@ -102,7 +102,7 @@ function PageHero() {
           {/* Caption tag */}
           <div className="absolute bottom-5 left-5 flex items-center gap-3">
             <span className="w-6 h-px bg-accent" />
-            <span className="label-text text-white/90">In-house production · Germany</span>
+            <span className="label-text text-white/90">{t.servicesPage.caption}</span>
           </div>
         </motion.div>
       </motion.div>
