@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { ComingSoon } from '@/components/shared/ComingSoon'
+import { AboutContent } from './AboutContent'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Quarter Distribution — About page.',
+  description:
+    'Quarter Distribution & Production — a European skateboard company, by skateboarders for skateboarders. Manufacturing, distribution and OEM since 2008.',
 }
 
 export default function Page() {
-  return <ComingSoon titleKey="about" />
+  return <AboutContent />
 }

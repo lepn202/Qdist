@@ -37,12 +37,19 @@ required, roughly in priority order:
   [`src/i18n/translations.ts`](src/i18n/translations.ts) (EN **and** DE).
 
 ### Stub / unbuilt pages
-- **`/about`** and **`/references`** are still `ComingSoon` stubs
+- **`/about`**, **`/privacy`** and **`/imprint`** are now fully built, with
+  content ported from the current live site (EN + DE). About is linked from the
+  main nav; Privacy and Imprint from the footer.
+- **`/references`** is still a `ComingSoon` stub
   ([`src/components/shared/ComingSoon.tsx`](src/components/shared/ComingSoon.tsx))
-  and need real content.
-- **`/privacy`, `/terms`, `/imprint`** are linked from the footer but the routes
-  do not exist yet — they currently 404. These are required legally (the German
-  *Impressum* especially) and should be built before launch.
+  and needs real content.
+- **`/terms`** is linked from the footer but the route does not exist yet — it
+  currently 404s and should be built (or the link removed) before launch.
+
+> The company/legal details on the Imprint and Privacy pages live in `COMPANY`
+> in [`src/lib/constants.ts`](src/lib/constants.ts); the legal text itself is a
+> faithful adaptation of the live site and should be reviewed by the client
+> before launch.
 
 ### Sections from the live site not yet ported
 Compared with [quarterdist.com](https://quarterdist.com/), the following are not
