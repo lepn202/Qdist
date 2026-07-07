@@ -21,6 +21,7 @@ const en = {
   nav: {
     services: 'Services',
     brands: 'Brands',
+    about: 'About',
     contact: 'Contact',
   },
   header: {
@@ -178,28 +179,25 @@ const en = {
     description:
       'Long-term relationships with brands, retailers, and manufacturers across Europe and beyond.',
     more: 'More on our partners →',
-    // Positionally aligned with REFERENCES in @/lib/constants.
+    // Placeholder references — real testimonials to be collected and added.
     items: [
       {
-        quote:
-          'One of the best skateboard hardware distributions in Europe. Ordering through the B2B shop is effortless, stock is reliable, and delivery is consistently fast — exactly what a shop needs.',
-        author: 'Buyer',
-        company: 'Independent Skate Shop',
-        location: 'Germany',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 1',
+        company: 'Coming soon',
+        location: '',
       },
       {
-        quote:
-          'Their in-house production quality is outstanding. Every deck is individually pressed and passes three separate quality controls, so the consistency across large runs keeps our brand standards high.',
-        author: 'Brand Director',
-        company: 'European Skateboard Label',
-        location: 'EU',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 2',
+        company: 'Coming soon',
+        location: '',
       },
       {
-        quote:
-          'From the first order to delivery the process is seamless, and their support for contests and the wider scene shows they genuinely care about skateboarding — not just the sale.',
-        author: 'Distribution Partner',
-        company: 'International Skate Brand',
-        location: 'Worldwide',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 3',
+        company: 'Coming soon',
+        location: '',
       },
     ],
   },
@@ -273,6 +271,116 @@ const en = {
       references: 'References',
     },
   },
+  about: {
+    label: 'About',
+    title: 'By Skateboarders, For Skateboarders',
+    intro:
+      'Quarter Distribution & Production is a European skateboard company built on more than a decade in the board-sport industry — run by skateboarders, for skateboarders.',
+    storyLabel: 'Our Story',
+    story: [
+      "What began as a small distribution operation has grown into one of Europe's established skateboard companies. We've been producing skateboards since 2008, and today we press several tens of thousands of decks every year in our own facility.",
+      'Our business rests on three pillars: skateboard manufacturing in Germany, distribution of our own and partner brands across the continent, and full OEM organisation and importing for brands worldwide. From decks, cruisers and longboards to complete setups and accessories, we build the products — and the brands behind them.',
+    ],
+    approachLabel: 'Our Approach',
+    approach:
+      'Close customer relationships, fair pricing and fast, reliable order processing sit at the centre of everything we do.',
+    statsLabel: 'At a Glance',
+    stats: [
+      { value: '2008', label: 'Producing Since' },
+      { value: '10+',  label: 'Years in the Industry' },
+      { value: '50K+', label: 'Boards per Year' },
+      { value: '3',    label: 'Locations' },
+    ],
+    pillarsLabel: 'What We Do',
+    pillars: [
+      {
+        title: 'Manufacturing',
+        description:
+          'German-made skateboards, cruisers and longboards — pressed, printed and finished in-house.',
+      },
+      {
+        title: 'Distribution',
+        description:
+          'Pan-European distribution of our own labels and partner brands like Blast Skates, BRONX Wheels, Poetic Collective and Inpeddo.',
+      },
+      {
+        title: 'OEM & Import',
+        description:
+          'Full OEM organisation, importing and quality oversight — including our own office in China.',
+      },
+    ],
+    locationsLabel: 'Locations',
+    locations: [
+      { name: 'Berlin-Köpenick', detail: 'Headquarters' },
+      { name: 'Rüdersdorf',      detail: 'Production & warehouse · Puschkinstraße 17' },
+      { name: 'China',           detail: 'Innovation, production & quality oversight' },
+    ],
+  },
+  privacy: {
+    label: 'Privacy',
+    title: 'Privacy Policy',
+    intro:
+      'We take the protection of your personal data seriously. This policy explains what data we process when you use our website, and the rights you have.',
+    controllerLabel: 'Data Controller',
+    sections: [
+      {
+        heading: 'Data We Collect',
+        body: [
+          'We collect personal data that you actively provide — for example when you use our contact form (name, company, email address and the content of your message).',
+          'When you visit the site, our systems automatically collect technical data such as browser type, operating system, the time of access and your IP address. This data is used to deliver the site reliably and securely.',
+        ],
+      },
+      {
+        heading: 'Cookies & Tracking',
+        body: [
+          'Session cookies are removed automatically after your visit. Persistent cookies let us recognise your browser on a return visit.',
+          'Where enabled, we use analytics and marketing tools including Google Analytics (with IP anonymisation), Google Ads conversion tracking, the Facebook Pixel and YouTube in extended data-protection mode.',
+        ],
+      },
+      {
+        heading: 'Third-Party Services',
+        body: [
+          'Depending on how you interact with us, data may be processed by payment providers (e.g. PayPal and card processors), Google services (Analytics, Ads, reCAPTCHA, Maps and Fonts), Facebook, YouTube and our email/newsletter provider.',
+        ],
+      },
+      {
+        heading: 'Your Rights',
+        body: [
+          'You have the right to free information about the personal data we store, and to its correction, blocking or deletion. You may request your data in a machine-readable format, restrict its processing, withdraw consent at any time, and lodge a complaint with a supervisory authority.',
+        ],
+      },
+    ],
+    contactLabel: 'Exercising Your Rights',
+    contactBody:
+      'To request information, corrections or deletion, contact us at the address below.',
+  },
+  imprint: {
+    label: 'Legal Notice',
+    title: 'Imprint',
+    intro: 'Information pursuant to § 5 TMG.',
+    companyLabel: 'Company',
+    directorsLabel: 'Managing Directors',
+    registerLabel: 'Commercial Register',
+    vatLabel: 'VAT Identification No.',
+    contactLabel: 'Contact',
+    bankLabel: 'Bank Details',
+    locationLabel: 'Warehouse & Production',
+    disclaimerLabel: 'Disclaimer',
+    disclaimers: [
+      {
+        heading: 'Liability for Content',
+        body: 'As a service provider we are responsible for our own content on these pages under general law. However, we are not obliged to monitor transmitted or stored third-party information, or to investigate circumstances that indicate unlawful activity.',
+      },
+      {
+        heading: 'Liability for Links',
+        body: 'Our site contains links to external websites over whose content we have no control. The respective provider is always responsible for the content of linked pages. Linked pages were checked for legal violations at the time of linking; no unlawful content was apparent.',
+      },
+      {
+        heading: 'Copyright',
+        body: 'Content created by the site operators is subject to German copyright law. Reproduction, editing, distribution or any kind of use beyond the limits of copyright require the written consent of the respective author or creator.',
+      },
+    ],
+  },
 }
 
 export type Dictionary = typeof en
@@ -281,6 +389,7 @@ const de: Dictionary = {
   nav: {
     services: 'Leistungen',
     brands: 'Marken',
+    about: 'Über uns',
     contact: 'Kontakt',
   },
   header: {
@@ -435,27 +544,25 @@ const de: Dictionary = {
     description:
       'Langjährige Beziehungen zu Marken, Händlern und Herstellern in Europa und darüber hinaus.',
     more: 'Mehr über unsere Partner →',
+    // Platzhalter-Referenzen – echte Stimmen werden noch ergänzt.
     items: [
       {
-        quote:
-          'Einer der besten Skateboard-Hardware-Vertriebe in Europa. Die Bestellung über den B2B-Shop ist mühelos, der Lagerbestand zuverlässig und die Lieferung durchweg schnell – genau das, was ein Shop braucht.',
-        author: 'Einkäufer',
-        company: 'Unabhängiger Skateshop',
-        location: 'Deutschland',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 1',
+        company: 'In Kürze',
+        location: '',
       },
       {
-        quote:
-          'Die Qualität ihrer eigenen Produktion ist herausragend. Jedes Deck wird einzeln gepresst und durchläuft drei separate Qualitätskontrollen – die Konsistenz über große Serien hält unsere Markenstandards hoch.',
-        author: 'Markenleiter',
-        company: 'Europäisches Skateboard-Label',
-        location: 'EU',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 2',
+        company: 'In Kürze',
+        location: '',
       },
       {
-        quote:
-          'Vom ersten Auftrag bis zur Lieferung läuft der Prozess reibungslos, und ihr Engagement für Contests und die Szene zeigt, dass ihnen Skateboarding wirklich am Herzen liegt – nicht nur der Verkauf.',
-        author: 'Vertriebspartner',
-        company: 'Internationale Skate-Marke',
-        location: 'Weltweit',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 3',
+        company: 'In Kürze',
+        location: '',
       },
     ],
   },
@@ -531,6 +638,116 @@ const de: Dictionary = {
       production: 'Produktion',
       references: 'Referenzen',
     },
+  },
+  about: {
+    label: 'Über uns',
+    title: 'Von Skateboardern für Skateboarder',
+    intro:
+      'Quarter Distribution & Production ist ein europäisches Skateboard-Unternehmen mit über einem Jahrzehnt Erfahrung in der Boardsport-Branche – von Skateboardern für Skateboarder.',
+    storyLabel: 'Unsere Geschichte',
+    story: [
+      'Aus einem kleinen Vertrieb ist eines der etablierten Skateboard-Unternehmen Europas geworden. Seit 2008 produzieren wir Skateboards und pressen heute mehrere zehntausend Decks pro Jahr in eigener Fertigung.',
+      'Unser Geschäft ruht auf drei Säulen: Skateboard-Produktion in Deutschland, Vertrieb eigener und Partner-Marken in ganz Europa sowie die komplette OEM-Organisation und der Import für Marken weltweit. Von Decks, Cruisern und Longboards bis zu kompletten Setups und Zubehör – wir fertigen die Produkte und die Marken dahinter.',
+    ],
+    approachLabel: 'Unser Anspruch',
+    approach:
+      'Enge Kundenbeziehungen, faire Preise und eine schnelle, zuverlässige Auftragsabwicklung stehen im Mittelpunkt unseres Handelns.',
+    statsLabel: 'Auf einen Blick',
+    stats: [
+      { value: '2008', label: 'Produzieren seit' },
+      { value: '10+',  label: 'Jahre in der Branche' },
+      { value: '50K+', label: 'Boards pro Jahr' },
+      { value: '3',    label: 'Standorte' },
+    ],
+    pillarsLabel: 'Was wir tun',
+    pillars: [
+      {
+        title: 'Produktion',
+        description:
+          'In Deutschland gefertigte Skateboards, Cruiser und Longboards – im eigenen Haus gepresst, bedruckt und veredelt.',
+      },
+      {
+        title: 'Vertrieb',
+        description:
+          'Europaweiter Vertrieb eigener Labels und Partner-Marken wie Blast Skates, BRONX Wheels, Poetic Collective und Inpeddo.',
+      },
+      {
+        title: 'OEM & Import',
+        description:
+          'Komplette OEM-Organisation, Import und Qualitätssicherung – inklusive eigenem Büro in China.',
+      },
+    ],
+    locationsLabel: 'Standorte',
+    locations: [
+      { name: 'Berlin-Köpenick', detail: 'Hauptsitz' },
+      { name: 'Rüdersdorf',      detail: 'Produktion & Lager · Puschkinstraße 17' },
+      { name: 'China',           detail: 'Innovation, Produktion & Qualitätssicherung' },
+    ],
+  },
+  privacy: {
+    label: 'Datenschutz',
+    title: 'Datenschutzerklärung',
+    intro:
+      'Der Schutz deiner personenbezogenen Daten ist uns wichtig. Diese Erklärung beschreibt, welche Daten wir bei der Nutzung unserer Website verarbeiten und welche Rechte dir zustehen.',
+    controllerLabel: 'Verantwortlicher',
+    sections: [
+      {
+        heading: 'Welche Daten wir erheben',
+        body: [
+          'Wir erheben personenbezogene Daten, die du uns aktiv übermittelst – etwa über unser Kontaktformular (Name, Firma, E-Mail-Adresse und Inhalt deiner Nachricht).',
+          'Beim Besuch der Website erfassen unsere Systeme automatisch technische Daten wie Browsertyp, Betriebssystem, Zugriffszeit und IP-Adresse. Diese Daten dienen dem zuverlässigen und sicheren Betrieb der Seite.',
+        ],
+      },
+      {
+        heading: 'Cookies & Tracking',
+        body: [
+          'Session-Cookies werden nach deinem Besuch automatisch gelöscht. Persistente Cookies ermöglichen es, deinen Browser bei einem erneuten Besuch wiederzuerkennen.',
+          'Sofern aktiviert, nutzen wir Analyse- und Marketing-Tools wie Google Analytics (mit IP-Anonymisierung), Google-Ads-Conversion-Tracking, das Facebook-Pixel und YouTube im erweiterten Datenschutzmodus.',
+        ],
+      },
+      {
+        heading: 'Dienste von Drittanbietern',
+        body: [
+          'Je nach Interaktion können Daten durch Zahlungsdienstleister (z. B. PayPal und Kartenanbieter), Google-Dienste (Analytics, Ads, reCAPTCHA, Maps und Fonts), Facebook, YouTube sowie unseren E-Mail-/Newsletter-Anbieter verarbeitet werden.',
+        ],
+      },
+      {
+        heading: 'Deine Rechte',
+        body: [
+          'Du hast das Recht auf unentgeltliche Auskunft über deine gespeicherten Daten sowie auf deren Berichtigung, Sperrung oder Löschung. Du kannst deine Daten in einem maschinenlesbaren Format anfordern, die Verarbeitung einschränken, eine Einwilligung jederzeit widerrufen und dich bei einer Aufsichtsbehörde beschweren.',
+        ],
+      },
+    ],
+    contactLabel: 'Rechte ausüben',
+    contactBody:
+      'Für Auskunft, Berichtigung oder Löschung kontaktiere uns über die unten genannte Adresse.',
+  },
+  imprint: {
+    label: 'Impressum',
+    title: 'Impressum',
+    intro: 'Angaben gemäß § 5 TMG.',
+    companyLabel: 'Unternehmen',
+    directorsLabel: 'Geschäftsführer',
+    registerLabel: 'Handelsregister',
+    vatLabel: 'Umsatzsteuer-ID',
+    contactLabel: 'Kontakt',
+    bankLabel: 'Bankverbindung',
+    locationLabel: 'Lager & Produktion',
+    disclaimerLabel: 'Haftungsausschluss',
+    disclaimers: [
+      {
+        heading: 'Haftung für Inhalte',
+        body: 'Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.',
+      },
+      {
+        heading: 'Haftung für Links',
+        body: 'Unsere Seite enthält Links zu externen Websites, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf Rechtsverstöße überprüft; rechtswidrige Inhalte waren nicht erkennbar.',
+      },
+      {
+        heading: 'Urheberrecht',
+        body: 'Die von den Betreibern erstellten Inhalte unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.',
+      },
+    ],
   },
 }
 

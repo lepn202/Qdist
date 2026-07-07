@@ -9,10 +9,31 @@ export const CONTACT_PHONE_HREF = '+491739859833'
 export const CONTACT_ADDRESS = 'Europe'
 export const B2B_SHOP_URL = 'https://b2b.quarterdist.com/'
 
+// Legal / registered company details — used by the Imprint and Privacy pages.
+// These are language-neutral facts, so they live here rather than in the i18n
+// dictionaries (only the surrounding labels are translated).
+export const COMPANY = {
+  legalName:          'Quarter Distribution GmbH',
+  managingDirectors:  'Max Ritter & Andreas Ritter',
+  registeredAddress:  ['Finkeldeweg 86', 'DE-12557 Berlin'],
+  warehouseAddress:   ['Puschkinstraße 17', '15562 Rüdersdorf'],
+  register:           'Amtsgericht Braunschweig · HRB 205164',
+  vatId:              'DE298652248',
+  legalEmail:         'info@quarterdist.com',
+  legalPhone:         '+49 (0)173 98 59 833',
+  legalPhoneHref:     '+491739859833',
+  bank: {
+    name: 'Braunschweigische Landessparkasse',
+    iban: 'DE41 2505 0000 0152 0422 97',
+    bic:  'NOLADE2HXXX',
+  },
+} as const
+
 // `key` maps to the matching label under `nav` in the i18n dictionaries.
 export const NAV_LINKS = [
   { key: 'services', href: '/services' },
   { key: 'brands',   href: '/brands' },
+  { key: 'about',    href: '/about' },
   { key: 'contact',  href: '/contact' },
 ] as const
 

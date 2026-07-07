@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
 import { staggerContainer, fadeUp } from '@/animations/variants'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
@@ -34,11 +32,9 @@ export function ServicesGrid() {
           <ServiceCard
             key={service.number}
             number={service.number}
-            slug={service.slug}
             image={service.image}
             title={t.servicesGrid.items[i].title}
             description={t.servicesGrid.items[i].description}
-            cta={t.servicesGrid.learnMore}
           />
         ))}
       </motion.div>
@@ -50,65 +46,49 @@ function ServiceCard({
   number,
   title,
   description,
-  slug,
   image,
-  cta,
 }: {
   number:      string
   title:       string
   description: string
-  slug:        string
   image:       string
-  cta:         string
 }) {
   return (
-    <motion.div variants={fadeUp}>
-      <Link href={`/${slug}`} className="group block">
-        <motion.article
-          initial="rest"
-          whileHover="hover"
-          className="relative bg-surface p-8 lg:p-10 min-h-[280px] flex flex-col justify-between overflow-hidden transition-colors duration-300 group-hover:bg-surface-2"
+    <motion.div variants={fadeUp} className="group">
+      <article className="relative bg-surface p-8 lg:p-10 min-h-[280px] flex flex-col justify-between overflow-hidden transition-colors duration-300 group-hover:bg-surface-2">
+        {/* Background photo — dim by default, surfaces on hover */}
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <Image
+            src={image}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover opacity-15 grayscale scale-105 transition-all duration-500 group-hover:opacity-35 group-hover:grayscale-0 group-hover:scale-100"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-surface/40 transition-colors duration-300 group-hover:from-surface-2 group-hover:via-surface-2/75" />
+        </div>
+
+        {/* Number — decorative */}
+        <span
+          aria-hidden
+          className="absolute top-6 right-8 font-display text-[5rem] leading-none text-foreground/[0.07] select-none transition-all duration-300 group-hover:text-foreground/[0.12] group-hover:-translate-y-1"
         >
-          {/* Background photo — dim by default, surfaces on hover */}
-          <div aria-hidden className="absolute inset-0 pointer-events-none">
-            <Image
-              src={image}
-              alt=""
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover opacity-15 grayscale scale-105 transition-all duration-500 group-hover:opacity-35 group-hover:grayscale-0 group-hover:scale-100"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-surface/40 transition-colors duration-300 group-hover:from-surface-2 group-hover:via-surface-2/75" />
-          </div>
+          {number}
+        </span>
 
-          {/* Number — decorative */}
-          <span
-            aria-hidden
-            className="absolute top-6 right-8 font-display text-[5rem] leading-none text-foreground/[0.07] select-none transition-all duration-300 group-hover:text-foreground/[0.12] group-hover:-translate-y-1"
-          >
-            {number}
-          </span>
+        {/* Content */}
+        <div className="relative flex-1 flex flex-col justify-end">
+          <h3 className="font-display text-display-sm text-foreground mb-3 group-hover:text-foreground transition-colors">
+            {title}
+          </h3>
+          <p className="text-xs text-foreground-muted leading-relaxed pr-8">
+            {description}
+          </p>
+        </div>
 
-          {/* Content */}
-          <div className="relative flex-1 flex flex-col justify-end">
-            <h3 className="font-display text-display-sm text-foreground mb-3 group-hover:text-foreground transition-colors">
-              {title}
-            </h3>
-            <p className="text-xs text-foreground-muted leading-relaxed pr-8">
-              {description}
-            </p>
-          </div>
-
-          {/* Hover CTA */}
-          <div className="relative flex items-center gap-2 mt-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-            <span className="label-text text-accent">{cta}</span>
-            <ArrowUpRight className="w-3 h-3 text-accent" />
-          </div>
-
-          {/* Bottom accent line — appears on hover */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-        </motion.article>
-      </Link>
+        {/* Bottom accent line — appears on hover */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+      </article>
     </motion.div>
   )
 }
