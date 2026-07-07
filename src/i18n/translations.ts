@@ -178,28 +178,25 @@ const en = {
     description:
       'Long-term relationships with brands, retailers, and manufacturers across Europe and beyond.',
     more: 'More on our partners →',
-    // Positionally aligned with REFERENCES in @/lib/constants.
+    // Placeholder references — real testimonials to be collected and added.
     items: [
       {
-        quote:
-          'One of the best skateboard hardware distributions in Europe. Ordering through the B2B shop is effortless, stock is reliable, and delivery is consistently fast — exactly what a shop needs.',
-        author: 'Buyer',
-        company: 'Independent Skate Shop',
-        location: 'Germany',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 1',
+        company: 'Coming soon',
+        location: '',
       },
       {
-        quote:
-          'Their in-house production quality is outstanding. Every deck is individually pressed and passes three separate quality controls, so the consistency across large runs keeps our brand standards high.',
-        author: 'Brand Director',
-        company: 'European Skateboard Label',
-        location: 'EU',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 2',
+        company: 'Coming soon',
+        location: '',
       },
       {
-        quote:
-          'From the first order to delivery the process is seamless, and their support for contests and the wider scene shows they genuinely care about skateboarding — not just the sale.',
-        author: 'Distribution Partner',
-        company: 'International Skate Brand',
-        location: 'Worldwide',
+        quote: 'Reference quote to be added.',
+        author: 'Reference 3',
+        company: 'Coming soon',
+        location: '',
       },
     ],
   },
@@ -435,27 +432,25 @@ const de: Dictionary = {
     description:
       'Langjährige Beziehungen zu Marken, Händlern und Herstellern in Europa und darüber hinaus.',
     more: 'Mehr über unsere Partner →',
+    // Platzhalter-Referenzen – echte Stimmen werden noch ergänzt.
     items: [
       {
-        quote:
-          'Einer der besten Skateboard-Hardware-Vertriebe in Europa. Die Bestellung über den B2B-Shop ist mühelos, der Lagerbestand zuverlässig und die Lieferung durchweg schnell – genau das, was ein Shop braucht.',
-        author: 'Einkäufer',
-        company: 'Unabhängiger Skateshop',
-        location: 'Deutschland',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 1',
+        company: 'In Kürze',
+        location: '',
       },
       {
-        quote:
-          'Die Qualität ihrer eigenen Produktion ist herausragend. Jedes Deck wird einzeln gepresst und durchläuft drei separate Qualitätskontrollen – die Konsistenz über große Serien hält unsere Markenstandards hoch.',
-        author: 'Markenleiter',
-        company: 'Europäisches Skateboard-Label',
-        location: 'EU',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 2',
+        company: 'In Kürze',
+        location: '',
       },
       {
-        quote:
-          'Vom ersten Auftrag bis zur Lieferung läuft der Prozess reibungslos, und ihr Engagement für Contests und die Szene zeigt, dass ihnen Skateboarding wirklich am Herzen liegt – nicht nur der Verkauf.',
-        author: 'Vertriebspartner',
-        company: 'Internationale Skate-Marke',
-        location: 'Weltweit',
+        quote: 'Referenz-Zitat folgt.',
+        author: 'Referenz 3',
+        company: 'In Kürze',
+        location: '',
       },
     ],
   },

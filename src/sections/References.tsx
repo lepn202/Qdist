@@ -31,21 +31,6 @@ export function References() {
           <ReferenceCard key={i} {...item} index={i} />
         ))}
       </motion.div>
-
-      {/* CTA below */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate={inView ? 'show' : 'hidden'}
-        className="mt-12 flex items-center justify-center"
-      >
-        <a
-          href="/brands"
-          className="label-text text-foreground-muted hover:text-foreground transition-colors border-b border-foreground-subtle hover:border-foreground pb-0.5"
-        >
-          {t.references.more}
-        </a>
-      </motion.div>
     </section>
   )
 }
@@ -83,7 +68,7 @@ function ReferenceCard({
       <footer className="border-t border-border pt-6">
         <p className="text-xs text-foreground font-medium">{author}</p>
         <p className="text-xs text-foreground-muted mt-0.5">{company}</p>
-        <p className="label-text text-foreground-subtle mt-1">{location}</p>
+        {location && <p className="label-text text-foreground-subtle mt-1">{location}</p>}
       </footer>
     </motion.blockquote>
   )
