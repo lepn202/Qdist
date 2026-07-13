@@ -124,7 +124,6 @@ export const BRANDS: Brand[] = [
   { name: 'Lousy Livin',       url: 'https://lousylivin.com/',                               image: '/images/brands/lousy-livin.jpg' },
   { name: 'Loomi Boards',      url: 'https://www.loomiboards.com/',                          image: '/images/brands/loomi-boards.jpg' },
   { name: 'Skip Skateboards',  url: 'https://b2b.quarterdist.com/collections/skip-skateboards', image: '/images/brands/skip-skateboards.jpg' },
-  { name: 'Flytech',           url: 'https://flytecc.com/',                                  image: '/images/brands/flytech.jpg' },
   { name: 'Bronx Wheels',      url: 'https://bronxwheels.com/',                              image: '/images/brands/bronx.jpg' },
   { name: 'Haze Wheels',       url: 'https://www.hazewheels.com/',                           image: '/images/brands/haze-wheels.jpg' },
   { name: 'Bolzen Trucks',     url: 'https://www.bolzentrucks.com/',                         image: '/images/brands/bolzen.jpg' },
