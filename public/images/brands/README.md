@@ -26,7 +26,6 @@ landscape artwork around 800×500 px works best.
 | Lousy Livin         | `lousy-livin.jpg`          | provided (grip tile, "by Inpeddo")           |
 | Loomi Boards        | `loomi-boards.jpg`         | provided (Little Lemon Loomi)                |
 | Skip Skateboards    | `skip-skateboards.jpg`     | provided (SKIP bubble logo)                  |
-| Flytech             | `flytech.jpg`              | not yet provided                             |
 | Bronx Wheels        | `bronx.jpg`                | provided                                     |
 | Haze Wheels         | `haze-wheels.jpg`          | provided                                     |
 | Bolzen Trucks       | `bolzen.jpg`               | provided                                     |
